@@ -11,6 +11,12 @@ set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -gdwarf-3")
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
+
+## test add link_directories
+#find_package(NTL REQUIRED)
+#link_directories( ${NTL_LIBRARY} )
+link_directories( "/usr/local/lib" )
+
 add_subdirectory(Marble)
 add_subdirectory(MarbleSamples)
 add_subdirectory(HElib)

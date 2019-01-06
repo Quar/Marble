@@ -19,8 +19,28 @@ set(SOURCE_FILES
 
 
 add_library(Marble ${SOURCE_FILES})
-target_include_directories(Marble PUBLIC "../HElib/src")
-target_link_libraries(Marble fhe ntl gmp m)
+#target_include_directories(Marble PUBLIC "../HElib/src" "/usr/local/include")
+
+target_include_directories(Marble PUBLIC
+  "../HElib/src"
+  "${FHE_INCLUDE_DIR}"
+  "${NTL_INCLUDE_DIR}"
+  "${GMP_INCLUDE_DIR}"
+)
+
+message("==NTL INCLUDE==>" ${NTL_INCLUDE_DIR} )
+message("==NTL LIB==>" ${NTL_LIBRARY} )
+message("==GMP LIB==>" ${GMP_LIBRARY} )
+
+link_directories( ${NTL_LIBRARY} )
+
+target_link_libraries(Marble
+  ${GMP_LIBRARIY}
+  ${NTL_LIBRARIY}
+  ${FHE_LIBRARIY}
+  ${M_LIBRARY}
+)
+
 
 if (ENABLE_DEBUG)
     target_compile_definitions(Marble PRIVATE DEBUG_PRINTOUT=1)
