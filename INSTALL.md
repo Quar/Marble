@@ -24,7 +24,7 @@ find MarbleSamples -type f -executable -exec bash -c 'echo "==> Running Sample {
 
 <details>
 <summary>Sample Output</summary>
-```
+<code>
 $ find MarbleSamples -type f -executable -exec bash -c 'echo "==> Running Sample {} ..."; {}' \;
 ==> Running Sample MarbleSamples/ads/MarbleSamples_Ads ...
 Choosing prm = 0
@@ -67,7 +67,7 @@ Using param set 1
 [81 1156 81 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] (min)
 [1 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] (index)
 Function executed in: 10634.6ms.
-```
+</code>
 </details>
 
 
@@ -128,7 +128,7 @@ find MarbleSamples -type f -executable -exec bash -c 'echo "==> Running Sample {
 
 <details>
 <summary>Sample Output</summary>
-```bash
+<code>
 $ find MarbleSamples -type f -executable -exec bash -c 'echo "==> Running {} ..."; {}' \;
 ==> Running MarbleSamples/hd_enc/MarbleSamples_hd_enc ...
 Output :
@@ -171,5 +171,5 @@ With levels: 56
 Using param set 0
 [2 2 2 2] ()
 Function executed in: 16658.9ms.
-```
+</code>
 </details>
