@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <functional>
+#include <thread>
 #include "M_HElib.h"
 
 using namespace std;
