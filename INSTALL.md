@@ -1,17 +1,20 @@
 Install
 =========
 
-## Compile
+## macOS
+
+### Compile
 
 To compile:
 
 ```bash
+brew install ntl # if you haven't installed ntl
 mkdir build && cd build
 cmake ..
 make -j 4  # tweak upto #ncpu_threads for faster compliation speed
 ```
 
-## Play with Samples
+### Play with Samples
 
 To Run samples:
 
@@ -59,5 +62,52 @@ Using param set 1
 [1 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] (index)
 Function executed in: 10634.6ms.
 ```
+
+
+## Linux
+
+
+Following guides has been tested on:
+  - Ubuntu 18.04
+    - cmake 3.10.2
+    - gcc 7.3.0
+    - ntl 11.3.2
+
+
+### Install
+
+1. Install `cmake`, `gcc` if you haven't.
+
+  ```bash
+  sudo apt update && sudo apt install build-essential cmake
+  ```
+
+2. Install `ntl` manually
+
+  ```bash
+  wget https://www.shoup.net/ntl/ntl-11.3.2.tar.gz
+  tar xzvf ntl-11.3.2.tar.gz
+  cd ntl-11.3.2/src
+  ./configure SHARED=on
+  make -j 4         # increase upto your #cores for speed
+  make check        # WARNING this can take a while
+  sudo make install
+  ```
+
+3. Bulid and Test Marble
+
+  ```bash
+  cd GIT_CLONED_DIR
+  mkdir build
+  cmake -DENABLE_THREADS=on .. # NTL_INCLUDE and NTL_LIB should be in /usr/local/
+  make -j 4         # increase upto your #cores for speed
+  find MarbleSamples -type f -executable -exec bash -c 'echo "==> Running {} ..."; {}' \;
+  ```
+
+  If you found MarbleSamples running anomaly slow, try to check if multiple cores
+  are used, especially for sample like `MarbleSamples/faces/MarbleSamples_Faces`.
+
+  If samples are running with a single thread, then it is quite likely that the
+  NTL library linked with Marble did not compiled to support multi-threads.
 
 
