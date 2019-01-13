@@ -104,21 +104,14 @@ Following guides has been tested on:
   sudo make install
   ```
 
-3. Bulid and Test Marble
+3. Compile Marble
 
   ```bash
   cd GIT_CLONED_DIR
   mkdir build
   cmake -DENABLE_THREADS=on .. # NTL_INCLUDE and NTL_LIB should be in /usr/local/
   make -j 4         # increase upto your #cores for speed
-  find MarbleSamples -type f -executable -exec bash -c 'echo "==> Running {} ..."; {}' \;
   ```
-
-  If you found MarbleSamples running anomaly slow, try to check if multiple cores
-  are used, especially for sample like `MarbleSamples/faces/MarbleSamples_Faces`.
-
-  If samples are running with a single thread, then it is quite likely that the
-  NTL library linked with Marble did not compiled to support multi-threads.
 
 
 ### Run Samples
@@ -126,6 +119,12 @@ Following guides has been tested on:
 ```bash
 find MarbleSamples -type f -executable -exec bash -c 'echo "==> Running Sample {} ..."; {}' \;
 ```
+
+If you found MarbleSamples running anomaly slow, try to check if multiple cores
+are used, especially for sample like `MarbleSamples/faces/MarbleSamples_Faces`.
+
+If samples are running with a single thread, then it is quite likely that the
+NTL library linked with Marble did not compiled to support multi-threads.
 
 
 <details>
