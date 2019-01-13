@@ -18,3 +18,7 @@ src/misc/*.txt
 !src/misc/iotest_asciiLE.txt
 !src/misc/iotest_binBE.bin
 !src/misc/iotest_binLE.bin
+
+
+# allow src/CMakeLists.txt to be tracked, might be bug on HElib
+!src/CMakeLists.txt
