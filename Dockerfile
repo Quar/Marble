@@ -12,7 +12,7 @@ RUN mkdir build-ntl && cd build-ntl && \
     tar xzvf ntl-11.3.2.tar.gz && \
     cd "ntl-11.3.2/src" && \
     ./configure SHARED=on && \
-    make -j $(nproc) && \
+    make && \
     make install
 
 
@@ -21,7 +21,7 @@ COPY . .
 
 RUN mkdir build && cd build && \
     cmake -DENABLE_THREADS=on .. && \
-    make -j $(nproc)
+    make
 
 
 WORKDIR /Marble/build
